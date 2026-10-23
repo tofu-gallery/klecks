@@ -1905,6 +1905,7 @@ export class KlApp {
                       applyUncommitted();
                       shareImage(callback);
                   },
+                  canUpload: Boolean(p.app?.imgurKey), // Tofu: standalone has no Imgur account.
                   onUpload: () => {
                       // on upload
                       applyUncommitted();

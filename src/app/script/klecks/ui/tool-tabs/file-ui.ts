@@ -49,6 +49,7 @@ export type TFileUiParams = {
     onNewImage: () => void;
     onShareImage: (callback: () => void) => void;
     onUpload: () => void;
+    canUpload?: boolean; // Tofu: show remote uploads only with an app-provided key.
     applyUncommitted: () => void;
     onChangeShowSaveDialog: (b: boolean) => void;
     klRecoveryManager?: KlRecoveryManager;
@@ -318,7 +319,7 @@ export class FileUi {
                 browserStorageFallbackEl,
                 createSpacer(),
                 recoveryWrapper,
-                uploadImgurButton,
+                p.canUpload ? uploadImgurButton : undefined,
                 BB.canShareFiles() ? shareButton : undefined,
                 BB.el({ css: { clear: 'both' } }),
             ]);
